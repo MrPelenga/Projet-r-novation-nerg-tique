@@ -1,0 +1,9 @@
+# Données brutes : trop lourdes pour GitHub (re-générables avec src/collecte.py)
+data/raw/
+# Base DuckDB complète (140 Mo > limite GitHub de 100 Mo) : re-générable avec src/nettoyage.py.
+# L'application en ligne utilise la version allégée data/processed/dpe_idf_app.parquet (versionnée).
+data/processed/*.duckdb
+data/processed/*.horsligne
+.venv/
+__pycache__/
+.pytest_cache/

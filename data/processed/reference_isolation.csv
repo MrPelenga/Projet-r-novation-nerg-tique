@@ -1,0 +1,9 @@
+type_batiment,paroi,pertes_m2_insuffisante,pertes_m2_tres_bonne,nb_dpe_insuffisante,nb_dpe_tres_bonne,reduction_pertes
+maison,murs,1.4694,0.2522,210854,35481,0.8284
+maison,toiture,0.3229,0.0637,66584,36205,0.8028
+maison,fenetres,0.6035,0.2131,63520,50637,0.6469
+maison,plancher_bas,0.284,0.104,212706,31214,0.6337
+appartement,murs,1.0525,0.2684,1199030,237191,0.745
+appartement,toiture,0.8559,0.0,81671,895021,1.0
+appartement,fenetres,0.7165,0.3168,367039,337555,0.5578
+appartement,plancher_bas,0.455,0.0,297073,1156094,1.0

@@ -1,0 +1,8 @@
+etape,description,lignes,lignes_retirees,pct_retire
+etape_0_brut,Données brutes des 8 départements,3372843,0,0.0
+etape_1_champs_obligatoires,"Règle 1 : étiquette, commune et date renseignées",3372843,0,0.0
+etape_2_logements,Règle 2 : exclusion des DPE « immeuble » (un DPE pour tout un bâtiment),3289763,83080,2.46
+etape_3_valeurs_plausibles,"Règle 3 : surface entre 8 et 500 m², conso entre 0 et 1 500 kWh/m²/an",3283794,5969,0.18
+etape_4_communes_idf,Règle 4 : codes INSEE mis à jour (fusions de communes) puis rattachés au référentiel IDF,3283794,0,0.0
+etape_5_dedoublonnage,Règle 5 : un logement re-diagnostiqué n'est compté qu'une fois (DPE le plus récent),3137735,146059,4.33
+dpe,"Table finale : colonnes renommées, types corrigés, indicateurs calculés",3137735,0,0.0

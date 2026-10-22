@@ -1,0 +1,140 @@
+# =====================================================================
+# Hypothèses du simulateur de rénovation — toutes modifiables dans l'application
+# (section « Hypothèses avancées »).
+#
+# Trois familles de valeurs :
+#   1. sourcées      : chiffre publié (régulateur, ministère, ADEME, Anah...) → champ `source`
+#   2. issues des DPE : calculées sur les DPE franciliens par src/references_simulateur.py
+#                      → fichiers data/processed/reference_*.csv (pas dans ce fichier)
+#   3. modélisation  : choix simplificateur SANS source publiée → `a_verifier: true`
+#
+# Les fourchettes (min / max) viennent de comparateurs privés quand aucune source
+# officielle n'a été trouvée : la valeur par défaut est le milieu de la fourchette.
+# Valeurs relevées le 22/10/2026.
+# =====================================================================
+
+prix_energie:            # €/kWh d'énergie finale, TTC sauf mention contraire
+  Électricité:
+    valeur: 0.2001
+    source: "Tarif réglementé (tarif Bleu) option Base 6 kVA au 1er août 2026 — délibération CRE n° 2026-147, relayée par Selectra"
+    url: "https://selectra.info/energie/actualites/marche/nouveaux-prix-electricite-tarif-bleu-1er-aout-2026"
+    remarque: "Prix du kWh seul, hors abonnement."
+  Gaz naturel:
+    valeur: 0.1456
+    source: "Prix repère CRE de vente de gaz, profil chauffage, octobre 2026 (relayé par Hellowatt)"
+    url: "https://www.hellowatt.fr/blog/publication-prix-repere-octobre-2026/"
+    remarque: "Prix du kWh seul, hors abonnement. Le gaz est facturé en kWh PCS, le DPE compte en kWh PCI (environ 10 % d'écart) : non corrigé ici."
+  Fioul domestique:
+    valeur: 0.1907
+    source: "1,9071 €/L TTC (relevé DGEC du 2 octobre 2026, relayé par Selectra) ÷ 10 kWh par litre"
+    url: "https://selectra.info/energie/actualites/marche/prix-fioul-octobre-2026-cuve-1000-litres"
+    remarque: "Conversion 1 L ≈ 10 kWh (pouvoir calorifique inférieur usuel du fioul domestique)."
+  Réseau de Chauffage urbain:
+    valeur: 0.1047
+    source: "Prix moyen national de la chaleur distribuée par les réseaux en 2024 : 104,7 € HT/MWh (AMORCE, enquête FEDENE-SNCU-SDES)"
+    url: "https://amorce.asso.fr/publications/enquete-sur-le-prix-de-vente-de-la-chaleur-et-du-froid-en-2024-rce43"
+    remarque: "Moyenne nationale HT, abonnement compris. Prix TTC francilien non trouvé."
+    a_verifier: true
+
+evolution_prix_energie:
+  valeur: 0.0
+  unite: "% par an"
+  remarque: "Choix par défaut : prix constants (aucune projection). À ajuster dans l'interface pour tester un scénario de hausse."
+  a_verifier: true
+
+pompe_a_chaleur:
+  scop:
+    valeur: 2.9
+    source: "Performance saisonnière moyenne mesurée des PAC air/eau en maison individuelle — étude ADEME / DGEC, octobre 2025"
+    url: "https://www.economie.gouv.fr/node/3240670"
+  cout:
+    valeur: 15287
+    unite: "€ TTC par logement"
+    source: "Coût moyen des travaux d'installation d'une PAC air/eau, étude de terrain ADEME (environ 100 ménages)"
+    url: "https://ds-enr.fr/blog/pompe-chaleur-rentable-etude-ademe-2025"
+    remarque: "Chiffre ADEME relayé par un site tiers ; fourchette observée de 10 000 € à 25 914 €."
+
+couts_travaux:           # € TTC, pose comprise
+  murs_exterieur:
+    libelle: "Isolation des murs par l'extérieur"
+    valeur: 185
+    min: 120
+    max: 250
+    unite: "€/m² de mur"
+    source: "Fourchettes de comparateurs privés (Quelle Énergie, travaux.com, Effy) — pas de source officielle trouvée"
+    a_verifier: true
+  murs_interieur:
+    libelle: "Isolation des murs par l'intérieur"
+    valeur: 65
+    min: 40
+    max: 90
+    unite: "€/m² de mur"
+    source: "Fourchettes de comparateurs privés — pas de source officielle trouvée"
+    a_verifier: true
+  toiture:
+    libelle: "Isolation des combles / de la toiture"
+    valeur: 45
+    min: 20
+    max: 70
+    unite: "€/m² de plancher de combles"
+    source: "Fourchettes de comparateurs privés (Quelle Énergie, travaux.com, prix-travaux.fr) — pas de source officielle trouvée"
+    a_verifier: true
+  fenetres:
+    libelle: "Remplacement des fenêtres (double vitrage)"
+    valeur: 650
+    min: 350
+    max: 950
+    unite: "€ par fenêtre"
+    source: "Fourchettes de comparateurs privés (Hellowatt, Hellio, allotravaux) — pas de source officielle trouvée"
+    a_verifier: true
+  plancher_bas:
+    libelle: "Isolation du plancher bas"
+    valeur: 55
+    min: 26
+    max: 85
+    unite: "€/m² de plancher"
+    source: "Fourchette ADEME citée par Hellio (26 à 85 €/m²)"
+    url: "https://particulier.hellio.com/blog/travaux/isolation-plancher"
+    remarque: "Chiffre ADEME relayé par un site tiers."
+
+renovation_ampleur:      # utilisé par le mode « saut d'étiquette »
+  cout_moyen:
+    valeur: 59474
+    unite: "€ par logement"
+    source: "Coût moyen des travaux d'un projet MaPrimeRénov' Parcours accompagné en 2025 (Anah, Chiffres clés 2025) ; gain énergétique moyen : 69 %"
+    url: "https://www.anah.gouv.fr/sites/default/files/2026-07/CHIFFRES-CLES_ANAH-2025_WEBA.pdf"
+    remarque: "Moyenne nationale, tous logements et toutes tailles confondus, non ajustée à la surface ni au nombre de classes gagnées."
+
+quantites:               # conversion surface habitable → quantités de travaux
+  # Hypothèses de modélisation (géométrie simplifiée), sans source : à ajuster pour chaque logement.
+  murs_m2_par_m2_habitable:
+    maison: 1.2          # ex. 100 m² sur 2 niveaux ≈ 120 m² de murs extérieurs
+    appartement: 0.6     # 1 à 2 façades donnant sur l'extérieur
+    a_verifier: true
+  toiture_m2_par_m2_habitable:
+    maison: 0.7          # maison de 1 à 2 niveaux : combles ≈ emprise au sol
+    a_verifier: true
+  plancher_bas_m2_par_m2_habitable:
+    maison: 0.7
+    a_verifier: true
+  m2_habitables_par_fenetre:
+    valeur: 12           # environ 1 fenêtre pour 12 m²
+    a_verifier: true
+
+coefficients_energie_primaire:   # convention du DPE
+  valeurs:
+    Électricité: 1.9
+    Gaz naturel: 1.0
+    Fioul domestique: 1.0
+    Réseau de Chauffage urbain: 1.0
+  source: "Méthode DPE (arrêté du 31 mars 2021) ; électricité abaissée de 2,3 à 1,9 au 1er janvier 2026 (arrêté du 13 août 2025)"
+  url: "https://www.ffbatiment.fr/actualites-batiment/actualite/dpe-audit-energetiques-baisse-coefficient-conversion-electricite"
+
+seuils_etiquettes_ep:    # kWh d'énergie primaire / m² / an — borne haute de chaque étiquette
+  valeurs: {A: 70, B: 110, C: 180, D: 250, E: 330, F: 420}
+  source: "Arrêté du 31 mars 2021 (seuils énergie seuls ; le seuil d'émissions de CO₂ n'est pas modélisé)"
+  remarque: "Seuils des logements de plus de 40 m². Les petites surfaces ont des seuils relevés depuis le 1er juillet 2024 (arrêté du 25 mars 2024), non modélisés."
+
+simulation:
+  duree_annees: 20
+  nb_dpe_minimum_reference: 30   # en dessous, la référence DPE n'est pas jugée fiable

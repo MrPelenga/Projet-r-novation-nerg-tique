@@ -1,0 +1,57 @@
+type_batiment,etiquette,energie,nb_dpe,conso_chauffage_ef_m2,conso_totale_ep_m2
+maison,A,Électricité,3773,18.4074,57.4091
+maison,A,Gaz naturel,38,24.9291,44.45
+maison,A,Fioul domestique,0,,
+maison,A,Réseau de Chauffage urbain,23,38.8458,66.4
+maison,B,Électricité,7678,33.6642,90.9441
+maison,B,Gaz naturel,1005,39.1459,61.5
+maison,B,Fioul domestique,1,43.9658,82.0
+maison,B,Réseau de Chauffage urbain,151,52.1413,85.1
+maison,C,Électricité,31532,59.6294,152.8637
+maison,C,Gaz naturel,35687,90.8322,127.222
+maison,C,Fioul domestique,223,88.3215,129.6
+maison,C,Réseau de Chauffage urbain,344,90.8426,133.8
+maison,D,Électricité,51758,91.8031,208.7958
+maison,D,Gaz naturel,64402,157.504,195.3502
+maison,D,Fioul domestique,2407,138.6803,181.1919
+maison,D,Réseau de Chauffage urbain,284,159.9728,209.0
+maison,E,Électricité,25984,124.7518,272.4243
+maison,E,Gaz naturel,43790,243.5137,282.9786
+maison,E,Fioul domestique,5049,193.503,231.243
+maison,E,Réseau de Chauffage urbain,197,227.3061,278.8
+maison,F,Électricité,9295,175.5232,361.587
+maison,F,Gaz naturel,24921,329.4243,369.4619
+maison,F,Fioul domestique,7566,259.2257,301.9641
+maison,F,Réseau de Chauffage urbain,166,307.6157,363.35
+maison,G,Électricité,8991,260.1003,507.0675
+maison,G,Gaz naturel,13736,445.9486,482.0399
+maison,G,Fioul domestique,10371,393.546,427.5199
+maison,G,Réseau de Chauffage urbain,50,406.0701,444.7
+appartement,A,Électricité,4005,12.9913,62.1571
+appartement,A,Gaz naturel,136,13.8237,48.05
+appartement,A,Fioul domestique,0,,
+appartement,A,Réseau de Chauffage urbain,1125,17.6022,66.9615
+appartement,B,Électricité,19175,20.6935,99.0998
+appartement,B,Gaz naturel,3762,22.48,59.319
+appartement,B,Fioul domestique,3,24.3122,32.6
+appartement,B,Réseau de Chauffage urbain,25406,40.44,92.9829
+appartement,C,Électricité,231691,36.5428,159.8267
+appartement,C,Gaz naturel,233345,53.8526,113.9484
+appartement,C,Fioul domestique,599,54.5737,139.02
+appartement,C,Réseau de Chauffage urbain,105879,60.9226,130.1663
+appartement,D,Électricité,239643,69.323,224.3077
+appartement,D,Gaz naturel,244023,126.7514,197.7108
+appartement,D,Fioul domestique,3172,101.6742,178.0447
+appartement,D,Réseau de Chauffage urbain,77365,121.3442,205.379
+appartement,E,Électricité,171601,108.6562,299.127
+appartement,E,Gaz naturel,185861,206.1128,281.012
+appartement,E,Fioul domestique,8246,153.3107,225.1433
+appartement,E,Réseau de Chauffage urbain,33828,191.9665,281.3244
+appartement,F,Électricité,76001,152.1944,387.2891
+appartement,F,Gaz naturel,73236,288.86,373.2862
+appartement,F,Fioul domestique,10168,213.7454,300.0695
+appartement,F,Réseau de Chauffage urbain,9216,263.1588,369.8416
+appartement,G,Électricité,66129,232.7798,539.084
+appartement,G,Gaz naturel,31098,410.2871,506.4399
+appartement,G,Fioul domestique,8556,333.534,447.7515
+appartement,G,Réseau de Chauffage urbain,2761,367.1081,483.8057
