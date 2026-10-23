@@ -2,7 +2,8 @@
 
 **Une application web qui cartographie les « passoires thermiques » d'Île-de-France à partir de 3,4 millions de diagnostics énergétiques (DPE) de l'ADEME, et qui simule les économies et le retour sur investissement d'une rénovation.**
 
-🔗 **Application en ligne : [lien à ajouter après le déploiement]**
+🔗 **Application en ligne : [ouvrir l'application](https://projet-r-novation-nerg-tique-dv4jewyjntnejthixcmblb.streamlit.app/)**
+*(premier chargement : environ 30 secondes, le temps que l'application se réveille et calcule les indicateurs)*
 
 ![Carte des passoires thermiques par commune](docs/captures/carte.jpg)
 
